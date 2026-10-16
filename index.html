@@ -1,29 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Carter Sanderson</title>
-	<meta property="og:title" content="Carter Sanderson">
-	<meta property="og:description" content="This is my website!">
-	<meta property="og:image" content="your-picture.png">
-	<meta property="og:url" content="http://cartersanderson.com">
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-		}
-		img {
-			display: block;
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-		}
-	</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carter Sanderson</title>
+<meta name="description" content="Carter Sanderson's corner of the internet.">
+<meta property="og:title" content="Carter Sanderson">
+<meta property="og:description" content="Carter Sanderson's corner of the internet.">
+<meta property="og:image" content="https://www.cartersanderson.com/carter.jpg">
+<meta property="og:url" content="https://www.cartersanderson.com">
+<meta name="theme-color" content="#305A72">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pixelify+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<noscript><style>.win[hidden]{display:block}.win{position:relative!important;left:auto!important;top:auto!important;margin:16px auto}</style></noscript>
 </head>
 <body>
-	<img src="your-picture.png" alt="Picture of Me">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 16 16">
+      <rect x="3.5" y="0.5" width="9" height="13" fill="#DDD" stroke="#000"/>
+      <rect x="5.5" y="2.5" width="5" height="5" fill="#305A72" stroke="#000"/>
+      <rect x="6" y="10" width="4" height="1" fill="#000"/>
+      <rect x="2.5" y="13.5" width="11" height="2" fill="#BBB" stroke="#000"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 32 32">
+      <path d="M7.5 2.5h13l6 6v21h-19z" fill="#fff" stroke="#000"/>
+      <path d="M20.5 2.5v6h6" fill="#DDD" stroke="#000"/>
+      <path d="M11 13h11M11 16h11M11 19h11M11 22h8" stroke="#555"/>
+    </symbol>
+    <symbol id="i-photo" viewBox="0 0 32 32">
+      <rect x="3.5" y="5.5" width="25" height="22" fill="#fff" stroke="#000"/>
+      <rect x="6.5" y="8.5" width="19" height="16" fill="#9DB6C4" stroke="#000"/>
+      <circle cx="16" cy="14.5" r="3.5" fill="#3B2F25"/>
+      <path d="M9 24.5c1-5 4-6.5 7-6.5s6 1.5 7 6.5z" fill="#C9B79A"/>
+      <rect x="11" y="13" width="10" height="3" fill="#F2C230" stroke="#000" stroke-width=".75"/>
+    </symbol>
+    <symbol id="i-folder" viewBox="0 0 32 32">
+      <path d="M2.5 7.5h9l2 2h16v18h-27z" fill="#CAB784" stroke="#000"/>
+      <path d="M2.5 12.5h27" stroke="#000"/>
+      <path d="M3.5 11.5h25" stroke="#E6D9B4"/>
+    </symbol>
+    <symbol id="i-letter" viewBox="0 0 32 32">
+      <rect x="3.5" y="8.5" width="25" height="17" fill="#fff" stroke="#000"/>
+      <path d="M3.5 8.5 16 18.5 28.5 8.5" fill="none" stroke="#000"/>
+      <rect x="22.5" y="10.5" width="4" height="4" fill="#305A72"/>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 32 32">
+      <rect x="13.5" y="3.5" width="5" height="2" fill="#DDD" stroke="#000"/>
+      <rect x="6.5" y="5.5" width="19" height="3" fill="#DDD" stroke="#000"/>
+      <path d="M8.5 8.5h15l-1.5 20h-12z" fill="#fff" stroke="#000"/>
+      <path d="M12.5 11v15M16 11v15M19.5 11v15" stroke="#888"/>
+    </symbol>
+    <symbol id="i-trash-full" viewBox="0 0 32 32">
+      <path d="M9 7.5 13 3l5 1.5 3-2 3 4z" fill="#F2C230" stroke="#000"/>
+      <rect x="6.5" y="5.5" width="19" height="3" fill="#DDD" stroke="#000" transform="rotate(-6 16 7)"/>
+      <path d="M8.5 8.5h15l-1.5 20h-12z" fill="#fff" stroke="#000"/>
+      <path d="M12.5 11v15M16 11v15M19.5 11v15" stroke="#888"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="menubar">
+  <nav class="menus" aria-label="Menu bar">
+    <div class="menu">
+      <button class="menu-title menu-logo" aria-expanded="false" aria-haspopup="true" aria-label="Site menu">
+        <svg width="16" height="16"><use href="#i-logo"/></svg>
+      </button>
+      <ul class="menu-list" role="menu" hidden>
+        <li role="none"><button role="menuitem" data-open="site">About This Site…</button></li>
+      </ul>
+    </div>
+    <div class="menu">
+      <button class="menu-title" aria-expanded="false" aria-haspopup="true">File</button>
+      <ul class="menu-list" role="menu" hidden>
+        <li role="none"><button role="menuitem" data-open="readme">Open Read Me</button></li>
+        <li role="none"><button role="menuitem" data-open="about">Open About Carter</button></li>
+        <li role="none"><button role="menuitem" data-open="projects">Open Projects</button></li>
+        <li role="none"><button role="menuitem" data-open="contact">Open Contact</button></li>
+        <li role="none" class="sep"></li>
+        <li role="none"><button role="menuitem" data-action="close">Close Window <kbd>Esc</kbd></button></li>
+      </ul>
+    </div>
+    <div class="menu">
+      <button class="menu-title" aria-expanded="false" aria-haspopup="true">View</button>
+      <ul class="menu-list" role="menu" hidden>
+        <li role="none"><button role="menuitem" data-action="cleanup">Clean Up Windows</button></li>
+        <li role="none"><button role="menuitem" data-action="closeall">Close All Windows</button></li>
+      </ul>
+    </div>
+  </nav>
+  <time class="clock" id="clock" aria-live="off"></time>
+</header>
+
+<main class="desktop" id="desktop">
+
+  <h1 class="visually-hidden">Carter Sanderson</h1>
+
+  <ul class="icons" aria-label="Desktop">
+    <li><button class="icon" data-open="readme"><svg width="32" height="32" aria-hidden="true"><use href="#i-doc"/></svg><span>Read Me</span></button></li>
+    <li><button class="icon" data-open="about"><svg width="32" height="32" aria-hidden="true"><use href="#i-photo"/></svg><span>About Carter</span></button></li>
+    <li><button class="icon" data-open="projects"><svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg><span>Projects</span></button></li>
+    <li><button class="icon" data-open="contact"><svg width="32" height="32" aria-hidden="true"><use href="#i-letter"/></svg><span>Contact</span></button></li>
+    <li class="trash-slot"><button class="icon" data-open="trash"><svg width="32" height="32" aria-hidden="true"><use href="#i-trash-full"/></svg><span>Trash</span></button></li>
+  </ul>
+
+  <section class="win" id="win-readme" data-win="readme" aria-labelledby="t-readme" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close Read Me"></button>
+      <h2 class="title" id="t-readme">Read Me</h2>
+      <button class="box shade" aria-label="Collapse Read Me" aria-expanded="true"></button>
+    </div>
+    <div class="body prose" tabindex="-1">
+      <p class="hello">Carter Sanderson</p>
+      <p>Hi. You found my corner of the internet.</p>
+      <p>There isn’t much here yet. I’m still working out what this place is for, so for now it’s a desktop. Open things, drag them around, look in the Trash.</p>
+      <p>If you want to say hello, my address is in <button class="inline-link" data-open="contact">Contact</button>.</p>
+      <p class="stamp">Last changed October 15, 2026</p>
+    </div>
+  </section>
+
+  <section class="win" id="win-about" data-win="about" aria-labelledby="t-about" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close About Carter"></button>
+      <h2 class="title" id="t-about">About Carter</h2>
+      <button class="box shade" aria-label="Collapse About Carter" aria-expanded="true"></button>
+    </div>
+    <div class="body prose" tabindex="-1">
+      <figure class="portrait">
+        <img src="carter.jpg" width="720" height="960" alt="Carter wearing oversized yellow novelty glasses that spell BOOM.">
+        <figcaption>Me, on a normal day.</figcaption>
+      </figure>
+      <p>I’m Carter. I make small apps and tools, mostly for Apple platforms and the Plex server that runs my house.</p>
+      <p>I like old computers, careful software, and knowing where every song came from.</p>
+    </div>
+  </section>
+
+  <section class="win" id="win-projects" data-win="projects" aria-labelledby="t-projects" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close Projects"></button>
+      <h2 class="title" id="t-projects">Projects</h2>
+      <button class="box shade" aria-label="Collapse Projects" aria-expanded="true"></button>
+    </div>
+    <div class="finder-info"><span>3 items</span><span>Room for plenty more</span></div>
+    <div class="body finder" tabindex="-1">
+      <ul class="files">
+        <li>
+          <a href="https://github.com/MaybeCarter/commentary-track">
+            <svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg>
+            <span class="name">commentary-track</span>
+            <span class="what">Puts a podcast commentary into a movie file as its own audio track, synced to the film.</span>
+          </a>
+        </li>
+        <li>
+          <div>
+            <svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg>
+            <span class="name">jonbellion-archive</span>
+            <span class="what">A personal archive of every link ever posted to r/JonBellion, and whatever is still online.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg>
+            <span class="name">Plex odds and ends</span>
+            <span class="what">Scripts that keep a home Plex library tidy: missing artwork, collections, and things that shouldn’t be in Recently Added.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="win" id="win-contact" data-win="contact" aria-labelledby="t-contact" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close Contact"></button>
+      <h2 class="title" id="t-contact">Contact</h2>
+      <button class="box shade" aria-label="Collapse Contact" aria-expanded="true"></button>
+    </div>
+    <div class="body prose" tabindex="-1">
+      <p>The fastest way to reach me is email.</p>
+      <p class="big-link"><a href="mailto:me@cartersanderson.com">me@cartersanderson.com</a></p>
+      <p>I also keep code on <a href="https://github.com/MaybeCarter">GitHub</a>.</p>
+    </div>
+  </section>
+
+  <section class="win" id="win-trash" data-win="trash" aria-labelledby="t-trash" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close Trash"></button>
+      <h2 class="title" id="t-trash">Trash</h2>
+      <button class="box shade" aria-label="Collapse Trash" aria-expanded="true"></button>
+    </div>
+    <div class="finder-info"><span>1 item</span><span>Not emptied since 2023</span></div>
+    <div class="body finder" tabindex="-1">
+      <ul class="files">
+        <li>
+          <button data-open="oldsite">
+            <svg width="32" height="32" aria-hidden="true"><use href="#i-doc"/></svg>
+            <span class="name">your-picture.png</span>
+            <span class="what">The entire previous version of this website.</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="win" id="win-oldsite" data-win="oldsite" aria-labelledby="t-oldsite" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close your-picture.png"></button>
+      <h2 class="title" id="t-oldsite">your-picture.png</h2>
+      <button class="box shade" aria-label="Collapse your-picture.png" aria-expanded="true"></button>
+    </div>
+    <div class="body viewer" tabindex="-1">
+      <img src="carter.jpg" width="720" height="960" alt="The 2023 version of cartersanderson.com: one photo of Carter in BOOM glasses.">
+    </div>
+  </section>
+
+  <section class="win" id="win-site" data-win="site" aria-labelledby="t-site" hidden>
+    <div class="titlebar">
+      <button class="box close" aria-label="Close About This Site"></button>
+      <h2 class="title" id="t-site">About This Site</h2>
+      <button class="box shade" aria-label="Collapse About This Site" aria-expanded="true"></button>
+    </div>
+    <div class="body prose small" tabindex="-1">
+      <svg class="about-logo" width="48" height="48" aria-hidden="true"><use href="#i-logo"/></svg>
+      <p>Made by hand with HTML, CSS, and a little JavaScript. No frameworks, no tracking.</p>
+      <p>The colors come from <a href="https://512pixels.net">512 Pixels</a>. The idea of a website that is also a desktop comes from the <a href="https://beautifulmind.club">Beautiful Mind forum</a>.</p>
+      <p>Set in EB Garamond and Pixelify Sans. Hosted on GitHub Pages.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="desktop.js"></script>
 </body>
 </html>
