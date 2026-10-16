@@ -83,8 +83,8 @@
 
   function sourceRect(id) {
     const icon = document.querySelector(`.icon[data-open="${id}"]`);
-    const svg = icon && icon.querySelector("svg");
-    return svg ? svg.getBoundingClientRect() : null;
+    const img = icon && icon.querySelector("img");
+    return img ? img.getBoundingClientRect() : null;
   }
 
   /* ---------- Window lifecycle ---------- */

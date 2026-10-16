@@ -10,65 +10,21 @@
 <meta property="og:image" content="https://www.cartersanderson.com/carter.jpg">
 <meta property="og:url" content="https://www.cartersanderson.com">
 <meta name="theme-color" content="#305A72">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/happy-mac.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pixelify+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="preload" href="fonts/ChicagoFLF.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <noscript><style>.win[hidden]{display:block}.win{position:relative!important;left:auto!important;top:auto!important;margin:16px auto}</style></noscript>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-logo" viewBox="0 0 16 16">
-      <rect x="3.5" y="0.5" width="9" height="13" fill="#DDD" stroke="#000"/>
-      <rect x="5.5" y="2.5" width="5" height="5" fill="#305A72" stroke="#000"/>
-      <rect x="6" y="10" width="4" height="1" fill="#000"/>
-      <rect x="2.5" y="13.5" width="11" height="2" fill="#BBB" stroke="#000"/>
-    </symbol>
-    <symbol id="i-doc" viewBox="0 0 32 32">
-      <path d="M7.5 2.5h13l6 6v21h-19z" fill="#fff" stroke="#000"/>
-      <path d="M20.5 2.5v6h6" fill="#DDD" stroke="#000"/>
-      <path d="M11 13h11M11 16h11M11 19h11M11 22h8" stroke="#555"/>
-    </symbol>
-    <symbol id="i-photo" viewBox="0 0 32 32">
-      <rect x="3.5" y="5.5" width="25" height="22" fill="#fff" stroke="#000"/>
-      <rect x="6.5" y="8.5" width="19" height="16" fill="#9DB6C4" stroke="#000"/>
-      <circle cx="16" cy="14.5" r="3.5" fill="#3B2F25"/>
-      <path d="M9 24.5c1-5 4-6.5 7-6.5s6 1.5 7 6.5z" fill="#C9B79A"/>
-      <rect x="11" y="13" width="10" height="3" fill="#F2C230" stroke="#000" stroke-width=".75"/>
-    </symbol>
-    <symbol id="i-folder" viewBox="0 0 32 32">
-      <path d="M2.5 7.5h9l2 2h16v18h-27z" fill="#CAB784" stroke="#000"/>
-      <path d="M2.5 12.5h27" stroke="#000"/>
-      <path d="M3.5 11.5h25" stroke="#E6D9B4"/>
-    </symbol>
-    <symbol id="i-letter" viewBox="0 0 32 32">
-      <rect x="3.5" y="8.5" width="25" height="17" fill="#fff" stroke="#000"/>
-      <path d="M3.5 8.5 16 18.5 28.5 8.5" fill="none" stroke="#000"/>
-      <rect x="22.5" y="10.5" width="4" height="4" fill="#305A72"/>
-    </symbol>
-    <symbol id="i-trash" viewBox="0 0 32 32">
-      <rect x="13.5" y="3.5" width="5" height="2" fill="#DDD" stroke="#000"/>
-      <rect x="6.5" y="5.5" width="19" height="3" fill="#DDD" stroke="#000"/>
-      <path d="M8.5 8.5h15l-1.5 20h-12z" fill="#fff" stroke="#000"/>
-      <path d="M12.5 11v15M16 11v15M19.5 11v15" stroke="#888"/>
-    </symbol>
-    <symbol id="i-trash-full" viewBox="0 0 32 32">
-      <path d="M9 7.5 13 3l5 1.5 3-2 3 4z" fill="#F2C230" stroke="#000"/>
-      <rect x="6.5" y="5.5" width="19" height="3" fill="#DDD" stroke="#000" transform="rotate(-6 16 7)"/>
-      <path d="M8.5 8.5h15l-1.5 20h-12z" fill="#fff" stroke="#000"/>
-      <path d="M12.5 11v15M16 11v15M19.5 11v15" stroke="#888"/>
-    </symbol>
-  </defs>
-</svg>
-
 <header class="menubar">
   <nav class="menus" aria-label="Menu bar">
     <div class="menu">
       <button class="menu-title menu-logo" aria-expanded="false" aria-haspopup="true" aria-label="Site menu">
-        <svg width="16" height="16"><use href="#i-logo"/></svg>
+        <img src="icons/happy-mac.png" width="16" height="16" alt="">
       </button>
       <ul class="menu-list" role="menu" hidden>
         <li role="none"><button role="menuitem" data-open="site">About This Site…</button></li>
@@ -101,11 +57,11 @@
   <h1 class="visually-hidden">Carter Sanderson</h1>
 
   <ul class="icons" aria-label="Desktop">
-    <li><button class="icon" data-open="readme"><svg width="32" height="32" aria-hidden="true"><use href="#i-doc"/></svg><span>Read Me</span></button></li>
-    <li><button class="icon" data-open="about"><svg width="32" height="32" aria-hidden="true"><use href="#i-photo"/></svg><span>About Carter</span></button></li>
-    <li><button class="icon" data-open="projects"><svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg><span>Projects</span></button></li>
-    <li><button class="icon" data-open="contact"><svg width="32" height="32" aria-hidden="true"><use href="#i-letter"/></svg><span>Contact</span></button></li>
-    <li class="trash-slot"><button class="icon" data-open="trash"><svg width="32" height="32" aria-hidden="true"><use href="#i-trash-full"/></svg><span>Trash</span></button></li>
+    <li><button class="icon" data-open="readme"><img src="icons/readme.png" width="32" height="32" alt=""><span>Read Me</span></button></li>
+    <li><button class="icon" data-open="about"><img src="icons/photo.png" width="32" height="32" alt=""><span>About Carter</span></button></li>
+    <li><button class="icon" data-open="projects"><img src="icons/folder.png" width="32" height="32" alt=""><span>Projects</span></button></li>
+    <li><button class="icon" data-open="contact"><img src="icons/mailbox.png" width="32" height="32" alt=""><span>Contact</span></button></li>
+    <li class="trash-slot"><button class="icon" data-open="trash"><img src="icons/trash-full.png" width="32" height="32" alt=""><span>Trash</span></button></li>
   </ul>
 
   <section class="win" id="win-readme" data-win="readme" aria-labelledby="t-readme" hidden>
@@ -150,21 +106,21 @@
       <ul class="files">
         <li>
           <a href="https://github.com/MaybeCarter/commentary-track">
-            <svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg>
+            <img src="icons/folder.png" width="32" height="32" alt="">
             <span class="name">commentary-track</span>
             <span class="what">Puts a podcast commentary into a movie file as its own audio track, synced to the film.</span>
           </a>
         </li>
         <li>
           <div>
-            <svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg>
+            <img src="icons/folder.png" width="32" height="32" alt="">
             <span class="name">jonbellion-archive</span>
             <span class="what">A personal archive of every link ever posted to r/JonBellion, and whatever is still online.</span>
           </div>
         </li>
         <li>
           <div>
-            <svg width="32" height="32" aria-hidden="true"><use href="#i-folder"/></svg>
+            <img src="icons/folder.png" width="32" height="32" alt="">
             <span class="name">Plex odds and ends</span>
             <span class="what">Scripts that keep a home Plex library tidy: missing artwork, collections, and things that shouldn’t be in Recently Added.</span>
           </div>
@@ -197,7 +153,7 @@
       <ul class="files">
         <li>
           <button data-open="oldsite">
-            <svg width="32" height="32" aria-hidden="true"><use href="#i-doc"/></svg>
+            <img src="icons/photo.png" width="32" height="32" alt="">
             <span class="name">your-picture.png</span>
             <span class="what">The entire previous version of this website.</span>
           </button>
@@ -224,10 +180,10 @@
       <button class="box shade" aria-label="Collapse About This Site" aria-expanded="true"></button>
     </div>
     <div class="body prose small" tabindex="-1">
-      <svg class="about-logo" width="48" height="48" aria-hidden="true"><use href="#i-logo"/></svg>
+      <img class="about-logo" src="icons/happy-mac.png" width="32" height="32" alt="">
       <p>Made by hand with HTML, CSS, and a little JavaScript. No frameworks, no tracking.</p>
       <p>The colors come from <a href="https://512pixels.net">512 Pixels</a>. The idea of a website that is also a desktop comes from the <a href="https://beautifulmind.club">Beautiful Mind forum</a>.</p>
-      <p>Set in EB Garamond and Pixelify Sans. Hosted on GitHub Pages.</p>
+      <p>Set in EB Garamond and ChicagoFLF, a public-domain revival of Susan Kare’s Chicago. The icons are Apple’s own, from Mac OS 8. Hosted on GitHub Pages.</p>
     </div>
   </section>
 
