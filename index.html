@@ -44,6 +44,7 @@
     <div class="menu">
       <button class="menu-title" aria-expanded="false" aria-haspopup="true">View</button>
       <ul class="menu-list" role="menu" hidden>
+        <li role="none"><button role="menuitem" data-action="cleanup-desktop">Clean Up Desktop</button></li>
         <li role="none"><button role="menuitem" data-action="cleanup">Clean Up Windows</button></li>
         <li role="none"><button role="menuitem" data-action="closeall">Close All Windows</button></li>
       </ul>
@@ -57,11 +58,11 @@
   <h1 class="visually-hidden">Carter Sanderson</h1>
 
   <ul class="icons" aria-label="Desktop">
-    <li><button class="icon" data-open="readme"><img src="icons/readme.png" width="32" height="32" alt=""><span>Read Me</span></button></li>
-    <li><button class="icon" data-open="about"><img src="icons/photo.png" width="32" height="32" alt=""><span>About Carter</span></button></li>
-    <li><button class="icon" data-open="projects"><img src="icons/folder.png" width="32" height="32" alt=""><span>Projects</span></button></li>
-    <li><button class="icon" data-open="contact"><img src="icons/mailbox.png" width="32" height="32" alt=""><span>Contact</span></button></li>
-    <li class="trash-slot"><button class="icon" data-open="trash"><img src="icons/trash-full.png" width="32" height="32" alt=""><span>Trash</span></button></li>
+    <li><button class="icon" data-open="readme"><img src="icons/readme.png" width="32" height="32" alt="" draggable="false"><span>Read Me</span></button></li>
+    <li><button class="icon" data-open="about"><img src="icons/photo.png" width="32" height="32" alt="" draggable="false"><span>About Carter</span></button></li>
+    <li><button class="icon" data-open="projects"><img src="icons/folder.png" width="32" height="32" alt="" draggable="false"><span>Projects</span></button></li>
+    <li><button class="icon" data-open="contact"><img src="icons/mailbox.png" width="32" height="32" alt="" draggable="false"><span>Contact</span></button></li>
+    <li class="trash-slot"><button class="icon" data-open="trash"><img src="icons/trash-full.png" width="32" height="32" alt="" draggable="false"><span>Trash</span></button></li>
   </ul>
 
   <section class="win" id="win-readme" data-win="readme" aria-labelledby="t-readme" hidden>

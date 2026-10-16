@@ -19,10 +19,12 @@
   const wins = {};
   document.querySelectorAll(".win").forEach((el) => (wins[el.dataset.win] = el));
 
-  let state = { pos: {}, open: ["readme"] };
+  document.documentElement.classList.add("js");
+
+  let state = { pos: {}, open: ["readme"], icons: {} };
   try {
     const saved = JSON.parse(localStorage.getItem(STORE));
-    if (saved && saved.pos && Array.isArray(saved.open)) state = saved;
+    if (saved && saved.pos && Array.isArray(saved.open)) state = { icons: {}, ...saved };
   } catch {}
   const save = () => {
     try { localStorage.setItem(STORE, JSON.stringify(state)); } catch {}
@@ -183,14 +185,83 @@
   const icons = [...document.querySelectorAll(".icon")];
   const select = (icon) => icons.forEach((i) => i.classList.toggle("selected", i === icon));
 
+  // On wide screens icons sit wherever they were last dropped. Unmoved icons
+  // keep the Finder's default spots: a column down the right, Trash at the bottom.
+  function layoutIcons() {
+    icons.forEach((icon) => {
+      const slot = icon.parentElement;
+      slot.style.left = slot.style.top = "";
+    });
+    if (narrow.matches) return;
+    const d = desktop.getBoundingClientRect();
+    let nextY = 16;
+    icons.forEach((icon) => {
+      const slot = icon.parentElement;
+      const w = slot.offsetWidth;
+      const h = slot.offsetHeight;
+      const isTrash = slot.classList.contains("trash-slot");
+      const def = { x: d.width - 16 - w, y: isTrash ? d.height - 16 - h : nextY };
+      if (!isTrash) nextY += h + 18;
+      const p = state.icons[icon.dataset.open] || def;
+      slot.style.left = Math.max(0, Math.min(p.x, d.width - w)) + "px";
+      slot.style.top = Math.max(0, Math.min(p.y, d.height - h)) + "px";
+    });
+  }
+
+  let drag = null;
+  let justDragged = false;
+
   icons.forEach((icon) => {
+    const slot = icon.parentElement;
+    const id = icon.dataset.open;
+
+    icon.addEventListener("pointerdown", (e) => {
+      if (narrow.matches || e.button !== 0) return;
+      select(icon);
+      drag = { px: e.clientX, py: e.clientY, x: slot.offsetLeft, y: slot.offsetTop, moved: false };
+      icon.setPointerCapture(e.pointerId);
+    });
+    icon.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      const dx = e.clientX - drag.px;
+      const dy = e.clientY - drag.py;
+      if (!drag.moved) {
+        if (Math.hypot(dx, dy) < 4) return;
+        drag.moved = true;
+        slot.classList.add("dragging");
+      }
+      const d = desktop.getBoundingClientRect();
+      slot.style.left = Math.max(0, Math.min(drag.x + dx, d.width - slot.offsetWidth)) + "px";
+      slot.style.top = Math.max(0, Math.min(drag.y + dy, d.height - slot.offsetHeight)) + "px";
+    });
+    const drop = () => {
+      if (!drag) return;
+      if (drag.moved) {
+        slot.classList.remove("dragging");
+        state.icons[id] = { x: slot.offsetLeft, y: slot.offsetTop };
+        save();
+        // The click that follows a drop shouldn't count as a click.
+        justDragged = true;
+        setTimeout(() => (justDragged = false), 300);
+      }
+      drag = null;
+    };
+    icon.addEventListener("pointerup", drop);
+    icon.addEventListener("pointercancel", drop);
+    icon.addEventListener("dragstart", (e) => e.preventDefault());
+
     icon.addEventListener("click", (e) => {
+      if (justDragged) return;
       select(icon);
       // Keyboard (detail 0), touch, and the narrow dock open on one press.
-      if (e.detail === 0 || coarse.matches || narrow.matches) openWin(icon.dataset.open);
+      if (e.detail === 0 || coarse.matches || narrow.matches) openWin(id);
     });
-    icon.addEventListener("dblclick", () => openWin(icon.dataset.open));
+    icon.addEventListener("dblclick", () => {
+      if (!justDragged) openWin(id);
+    });
   });
+
+  layoutIcons();
 
   desktop.addEventListener("pointerdown", (e) => {
     if (e.target === desktop || e.target.classList.contains("icons")) select(null);
@@ -232,6 +303,11 @@
       if (item.dataset.open) openWin(item.dataset.open, title.getBoundingClientRect());
       if (item.dataset.action === "close") { const t = topmost(); if (t) closeWin(t.dataset.win); }
       if (item.dataset.action === "closeall") Object.keys(wins).forEach((id) => !wins[id].hidden && closeWin(id));
+      if (item.dataset.action === "cleanup-desktop") {
+        state.icons = {};
+        save();
+        layoutIcons();
+      }
       if (item.dataset.action === "cleanup") {
         state.pos = {};
         save();
@@ -264,7 +340,10 @@
 
   /* ---------- Startup ---------- */
 
-  addEventListener("resize", () => Object.keys(wins).forEach((id) => !wins[id].hidden && place(id)));
+  addEventListener("resize", () => {
+    layoutIcons();
+    Object.keys(wins).forEach((id) => !wins[id].hidden && place(id));
+  });
 
   const startup = state.open.filter((id) => wins[id]);
   startup.forEach((id) => openWin(id, null, { animate: false }));

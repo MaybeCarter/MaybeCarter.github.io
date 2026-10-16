@@ -205,7 +205,14 @@ button {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-.icon img { display: block; }
+.icon img { display: block; -webkit-user-drag: none; }
+
+@media (min-width: 641px) {
+  .js .icons { inset: 0; pointer-events: none; }
+  .js .icons li { position: absolute; pointer-events: auto; }
+  .js .icon { touch-action: none; }
+  .icons li.dragging { z-index: 9998; opacity: .6; }
+}
 .icon span {
   padding: 1px 4px;
   line-height: 1.2;
